@@ -1,48 +1,24 @@
-
-/*B42D25 ~ rgb(180,44,37) bordeauxrot*/
-/*161682 ~ rgb(23,23,130) dklblau */
-/*168C16 ~ rgb(23,140,23) dklgruen */
-/*ffef95 ~ rgb(255,239,149) bg-gelb */
-
-a {text-decoration:underline; color:#168C16; background: transparent}
-
-h2 a {text-decoration:none;}
-
-.inpage { color:#168C16;}
-.expage { color:#161682;}
-
-a:visited {text-decoration:none;}
-
-
-/*
-a.inpage:visited {color:#6C6F12; background: transparent}
-a.expage:visited {color:#6C125D; background: transparent}
-*/
-
-@media screen {  /* hide from IE3 */
-a[href]:hover { background: #ffa }
+body{
+	margin:0;
 }
 
+#interface{
+	background-color: #e2e2e2;
+}
 
+.button{
+	display: inline-block;
+	text-align: center;
+	
+	border-width: thick;
+    border-color: #d41c5d;
+    border-style: groove;
+}
+.secondary_button{
+	border-color: green;
+}
 
+.user_button{
+	height: 50px;
+}
 
-.lde {background-image:url('http://www.carto.net/srv/img/back_l_de.gif'); }
-.lfr {background-image:url('http://www.carto.net/srv/img/back_l_fr.gif'); }
-.len {background-image:url('http://www.carto.net/srv/img/back_l_en.gif'); }
-.les {background-image:url('http://www.carto.net/srv/img/back_l_es.gif'); }
-
-.higher { font-weight:bold; } /*TO BE REMOVED*/
-.bigger { font-weight:bold; }
-.smaller { font-size:small;}
-
-.chrihelptd { background-color:#FFEF95; } /*tabellen hintergrund in christans hilfen sollet allgem hintergrund entsprechen*/
-
-.newspostit { background-color:#f6ffd8;}
-
-
-p,h1,h2,h3,h4,ul,ol,li,div,td,th,address,blockquote,b,i,.keepnormfontcolor { font-family:Arial,Helvetica,Geneva,sans-serif; color:#B42D25 }
-tt,pre { font-family:"Courier New",Courier,monospace; color:#B42D25; }
-
-
-.info { border:1px solid; background-color:#eeeeee; padding:40px; margin:0px; }
-.info tt, .info pre { font-family:"Courier New",Courier,monospace; color:blue; }

@@ -1,7 +1,7 @@
 
 window.onload = function () { 
 
-	var s = Snap("#example3");
+	var s = Snap("#map_area");
 	
 	red_army = [
 	

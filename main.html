@@ -2,13 +2,88 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> 
 <script src="snap.svg-min.js"></script>
 <script src="unit.js"></script>
+<script src="menu.js"></script>
+<script src="unitmenu.js"></script>
+<script src="ordermenu.js"></script>
 <script src="main.js"></script>
 </head>
 <body>
-
-<svg id="example3" xmlns="http://www.w3.org/2000/svg" width="1000" height="500" xmlns:xlink="http://www.w3.org/1999/xlink">
+<div id="interface">
+	<span class="button" onclick="menu('units')" >
+		<img class="user_button" src="icons/marching_soldiers.svg">
+		<div>
+			UNITS
+		</div>
+	</span>
+	<span class="button"onclick="menu('orders')" >
+		<img class="user_button" src="icons/soldier.svg">
+		<div>
+			ORDERS
+		</div>
+	</span>
+	<span class="button" onclick="menu('proceed')" >
+		<img class="user_button" src="icons/arrow_right.svg">
+		<div>
+			PROCEED
+		</div>
+	</span>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<!--- UNIT SELECTION -->
+	<span class="button secondary_button unit_menu_item" onclick="propose_unit('soldier')" >
+		<img class="user_button" src="icons/helmet.svg">
+		<div>
+			SOLDIER
+		</div>
+	</span>
+	
+	<span class="button secondary_button unit_menu_item" onclick="propose_unit('calvary')" >
+		<img class="user_button" src="icons/horserider.svg">
+		<div>
+			CALVARY
+		</div>
+	</span>
+	
+	<span class="button secondary_button unit_menu_item" onclick="propose_unit('calvary')" >
+		<img class="user_button" src="icons/archer.svg">
+		<div>
+			ARCHER
+		</div>
+	</span>
+	
+	<span class="button message unit_menu_item" >
+		Unit Type: <b id="unit_type">Soldier</b></br>
+		Unit Size: <input id="unit_num" type="number" value=1></input>
+		<br/>
+		Team:
+		<select>
+			<option value="Red">Red</option>
+			<option value="Blue">Blue</option>
+			<option value="Green">Green</option>
+		</select>
+		<button id="unit_place" value="Confirm" onclick="place()">Place Unit</button>
+	</span>
+	
+	<!--- ORDER SELECTION -->
+	<span class="button secondary_button order_menu_item" onclick="propose_unit('soldier')" >
+		<img class="user_button" src="icons/move.svg">
+		<div>
+			MOVE
+		</div>
+	</span>
+	
+	<span class="button secondary_button order_menu_item" onclick="propose_unit('calvary')" >
+		<img class="user_button" src="icons/split.svg">
+		<div>
+			SPLIT
+		</div>
+	</span>
+	
+	
+</div>
+<svg id="map_area" xmlns="http://www.w3.org/2000/svg" width="1000" height="500" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<image x="0" y="0" width="1000" height="500" xlink:href="chillianwallah-map.gif" />
 </svg>
 

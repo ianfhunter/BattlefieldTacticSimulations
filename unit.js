@@ -27,6 +27,8 @@ function add (elem, x, y){
 	return [elem[0] + x, elem[1] + y]
 }
 
+var running_unit_id = 0
+
 function Unit (x, y, rotation, type,team) {
     this.type = type;
     this.x = x;
@@ -72,11 +74,16 @@ function Unit (x, y, rotation, type,team) {
 			}
 		}
 		this.obj = prev_obj;
+		this.obj.attr({
+			id: "Unit"+(++running_unit_id),
+		})
 		//Apply Rotation
 		this.obj.transform("rotate(" +this.rotation + " "+(this.x + (22/2)) + " "+(this.y + (10/2)) + ")")
+		/*
 		this.obj.attr({
 			onclick: 'draw_command(this)'
 		})
+		*/
 	}
 };
 
@@ -84,7 +91,7 @@ function drawLine(event,obj,s) {
 	x = obj.getBoundingClientRect()['left']
 	y = obj.getBoundingClientRect()['top']
 	console.log(
-    x,y,event.clientX,event.clientY
+		x,y,event.clientX,event.clientY
 	)
 	
 	LINE = s.line(x,y,event.clientX,event.clientY)
@@ -94,6 +101,12 @@ function drawLine(event,obj,s) {
 			strokeWidth: 3
 		})
 	obj.order = LINE
+	console.log("ANIMATE")
+	var myMatrix = new Snap.Matrix();
+	myMatrix.translate(event.clientX - x,event.clientY - y);
+	console.log(obj)
+
+	Snap(obj).animate({ transform: myMatrix },400);
 	
 }
 
@@ -105,11 +118,11 @@ function draw_command(obj){
 			onclick:''
 		})
 	var a = 0;
-	document.addEventListener("click", function get_order(e){
+	/*document.addEventListener("click", function get_order(e){
 		a++; 	
 		console.log(a)
 		if(a > 1){
-			drawLine(e, obj, Snap("#example3"))			
+			drawLine(e, obj, Snap("#map_area"))			
 			document.removeEventListener("click", get_order)
 			var fn = function clear_order(){
 					console.log("CANCEL")
@@ -124,5 +137,5 @@ function draw_command(obj){
 //			document.addEventListener("click", fn)
 			s.click(fn)
 		}
-	});
+	});*/
 }

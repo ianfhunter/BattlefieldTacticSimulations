@@ -70,12 +70,12 @@ function initMap(evt) {
 }
 
 function resetCoords() {
-	//get current zoom and pan values
+	//get current zoom and pan map_areas
 	var scale = svgSVGObj.getCurrentScale();
 	var trans = svgSVGObj.getCurrentTranslate();
         var transx = trans.getX();
         var transy = trans.getY();
-        //reset offset-values and pixSize according to current scale and translate
+        //reset offset-map_areas and pixSize according to current scale and translate
         pixSize = origPixSize / scale;
         offsetX = parseFloat(ulXCorner) - transx * pixSize;
         offsetY = parseFloat(ulYCorner) - transy * pixSize;
@@ -95,7 +95,7 @@ function getTranslate(myElement,xOrY) {
         //get reference to element
 	element = svgDoc.getElementById(myElement);
         
-        //first get transform value of coordinate box
+        //first get transform map_area of coordinate box
         var curTransform = element.getAttribute("transform");
         curTransform = new String(curTransform); //Wert in ein String umwandeln
         //no fear from Regular expressions ... just copy it, I copied it either ...

@@ -49,18 +49,18 @@
                 <animateMotion id="animMotionZurGen" dur="&animDuration;" repeatCount="indefinite" rotate="auto-reverse">
                         <mpath xlink:href="#Zuerich_Geneva"/>
                 </animateMotion>
-                <animateTransform id="animTransZurGen" attributeName="transform" type="scale" keyTimes="0;0.2;0.8;1" values="1.5;4;4;1.5" dur="&animDuration;" additive="replace" fill="freeze" repeatCount="indefinite"/>
+                <animateTransform id="animTransZurGen" attributeName="transform" type="scale" keyTimes="0;0.2;0.8;1" map_areas="1.5;4;4;1.5" dur="&animDuration;" additive="replace" fill="freeze" repeatCount="indefinite"/>
         </use>
 </g>
 <g font-size="8000" font-family="sans-serif">
 	<text id="labelZurich" x="687000" y="50000">Zurich
-        	<animate id="textAnimZur" attributeName="fill-opacity" keyTimes="0;0.15;0.3;1" values="1;1;0;0" dur="&animDuration;" repeatCount="indefinite" />
+        	<animate id="textAnimZur" attributeName="fill-opacity" keyTimes="0;0.15;0.3;1" map_areas="1;1;0;0" dur="&animDuration;" repeatCount="indefinite" />
 	</text>
 	<text id="labelBern" x="608500" y="102500">Bern
-        	<animate id="textAnimBer" attributeName="fill-opacity" keyTimes="0;0.15;0.3;0.5;0.65;1" values="0;0;1;1;0;0" dur="&animDuration;" repeatCount="indefinite" />
+        	<animate id="textAnimBer" attributeName="fill-opacity" keyTimes="0;0.15;0.3;0.5;0.65;1" map_areas="0;0;1;1;0;0" dur="&animDuration;" repeatCount="indefinite" />
 	</text>
 	<text id="labelGeneva" x="504000" y="187000">Geneva
-        	<animate id="textAnimGen" attributeName="fill-opacity" keyTimes="0;0.65;0.8;1" values="0;0;1;1" dur="&animDuration;" repeatCount="indefinite" />
+        	<animate id="textAnimGen" attributeName="fill-opacity" keyTimes="0;0.65;0.8;1" map_areas="0;0;1;1" dur="&animDuration;" repeatCount="indefinite" />
 	</text>
 </g>
 <!-- use 302000 - y-coordinate (swiss coordinate system) for the y-coordinatate -->
