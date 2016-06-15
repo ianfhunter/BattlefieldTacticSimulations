@@ -80,9 +80,10 @@ function Unit (x, y, rotation, type,team) {
 	}
 };
 
-function printMousePos(event,x,y,s) {
-	
-  console.log(
+function drawLine(event,obj,s) {
+	x = obj.getBoundingClientRect()['left']
+	y = obj.getBoundingClientRect()['top']
+	console.log(
     x,y,event.clientX,event.clientY
 	)
 	
@@ -92,6 +93,7 @@ function printMousePos(event,x,y,s) {
 			stroke: '#000',
 			strokeWidth: 3
 		})
+	obj.order = LINE
 	
 }
 
@@ -104,8 +106,13 @@ function start_movement(obj){
 			fill: '#FF00DD',
 			onclick:''
 		})
-	document.addEventListener("click", function(e){
-		console.log()
-		printMousePos(e, obj.getBoundingClientRect()['left'], obj.getBoundingClientRect()['top'], Snap("#example3"))
+	var a = 0;
+	document.addEventListener("click", function anan(e){
+		a++; 	
+		console.log(a)
+		if(a > 1){
+			drawLine(e, obj, Snap("#example3"))			
+			this.removeEventListener("click", anan)
+		}
 	});
 }
