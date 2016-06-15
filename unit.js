@@ -75,7 +75,7 @@ function Unit (x, y, rotation, type,team) {
 		//Apply Rotation
 		this.obj.transform("rotate(" +this.rotation + " "+(this.x + (22/2)) + " "+(this.y + (10/2)) + ")")
 		this.obj.attr({
-			onclick: 'start_movement(this)'
+			onclick: 'draw_command(this)'
 		})
 	}
 };
@@ -97,22 +97,32 @@ function drawLine(event,obj,s) {
 	
 }
 
-
-
-function start_movement(obj){
+function draw_command(obj){
 	console.log(obj)
 	s = Snap(obj);
 	s.attr({
-			fill: '#FF00DD',
+			fill: '#00FFFF',
 			onclick:''
 		})
 	var a = 0;
-	document.addEventListener("click", function anan(e){
+	document.addEventListener("click", function get_order(e){
 		a++; 	
 		console.log(a)
 		if(a > 1){
 			drawLine(e, obj, Snap("#example3"))			
-			this.removeEventListener("click", anan)
+			document.removeEventListener("click", get_order)
+			var fn = function clear_order(){
+					console.log("CANCEL")
+					obj.order.remove()
+					document.removeEventListener("click", clear_order)
+					s.attr({
+						onclick:"draw_command(this)",
+						fill:"#DDDDDD"
+					})		
+					s.unclick(fn)
+			}
+//			document.addEventListener("click", fn)
+			s.click(fn)
 		}
 	});
 }
