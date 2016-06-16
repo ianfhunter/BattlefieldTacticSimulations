@@ -1,7 +1,7 @@
 var team_colors=[
 	"#890000",
 	"#0B2EA0",
-	"#00FFFF"	
+	"#05B200"	
 ]
 
 var unit_list={

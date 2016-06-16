@@ -12,19 +12,19 @@
 </head>
 <body>
 <div id="interface">
-	<span class="button" onclick="menu('units')" >
+	<span id="unit_assign" class="button" onclick="menu('units')" >
 		<img class="user_button" src="icons/marching_soldiers.svg">
 		<div>
 			UNITS
 		</div>
 	</span>
-	<span class="button"onclick="menu('orders')" >
+	<span  id="orders" class="button disabled"onclick="menu('orders')" >
 		<img class="user_button" src="icons/soldier.svg">
 		<div>
 			ORDERS
 		</div>
 	</span>
-	<span class="button" onclick="menu('proceed')" >
+	<span  id="proceed" class="button" onclick="menu('proceed')" >
 		<img class="user_button" src="icons/arrow_right.svg">
 		<div>
 			PROCEED
@@ -32,57 +32,66 @@
 	</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<!--- UNIT SELECTION -->
-	<span class="button secondary_button unit_menu_item" onclick="propose_unit('soldier')" >
+	<span class="button secondary_button disabled unit_menu_item" onclick="propose_unit('soldier')" >
 		<img class="user_button" src="icons/helmet.svg">
 		<div>
 			SOLDIER
 		</div>
 	</span>
 	
-	<span class="button secondary_button unit_menu_item" onclick="propose_unit('calvary')" >
+	<span class="button secondary_button disabled unit_menu_item" onclick="propose_unit('calvary')" >
 		<img class="user_button" src="icons/horserider.svg">
 		<div>
 			CALVARY
 		</div>
 	</span>
 	
-	<span class="button secondary_button unit_menu_item" onclick="propose_unit('archer')" >
+	<span class="button secondary_button disabled unit_menu_item" onclick="propose_unit('archer')" >
 		<img class="user_button" src="icons/archer.svg">
 		<div>
 			ARCHER
 		</div>
 	</span>
 	
-	<span class="button secondary_button message unit_menu_item" >
+	<span class="button secondary_button message disabled unit_menu_item" >
 		Unit Type: <b id="unit_type">Soldier</b></br>
 		Unit Size: <input id="unit_num" type="number" value=1></input>
 		<br/>
 		Team:
-		<select>
-			<option value="Red">Red</option>
-			<option value="Blue">Blue</option>
-			<option value="Green">Green</option>
+		<select id="unit_team">
+			<option value="0">Red</option>
+			<option value="1">Blue</option>
+			<option value="2">Green</option>
 		</select>
 		<button id="unit_place" value="Confirm" onclick="place()">Place Unit</button>
 	</span>
 	
 	<!--- ORDER SELECTION -->
-	<span class="button secondary_button order_menu_item" onclick="propose_unit('soldier')" >
+	<span class="button secondary_button disabled order_menu_item" onclick="propose_unit('soldier')" >
 		<img class="user_button" src="icons/move.svg">
 		<div>
 			MOVE
 		</div>
 	</span>
 	
-	<span class="button secondary_button order_menu_item" onclick="propose_unit('calvary')" >
+	<span class="button secondary_button disabled order_menu_item" onclick="propose_unit('calvary')" >
 		<img class="user_button" src="icons/split.svg">
 		<div>
 			SPLIT
 		</div>
 	</span>
-	
-	
 </div>
+<div id="info_bar">
+	<span class="message unit_menu_item" >
+		Units Available: 
+		<b class="resource_name">Soldier</b> <i class="resource_amount">20</i>
+		<b class="resource_name">Calvary</b> <i class="resource_amount">10</i>
+		<b class="resource_name">Archer</b> <i class="resource_amount">15</i>
+		
+		</br>
+	</span>
+</div>
+
 <svg id="map_area" xmlns="http://www.w3.org/2000/svg" width="1000" height="500" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<image x="0" y="0" width="1000" height="500" xlink:href="chillianwallah-map.gif" />
 </svg>

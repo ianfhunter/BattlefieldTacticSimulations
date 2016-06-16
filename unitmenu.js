@@ -7,7 +7,7 @@ function place(){
 	console.log($("#unit_num").val())
 	
 	$("#unit_place").text("Click on the map.")
-	troop = new Unit(0,0,45,"calvary",1),
+	troop = new Unit(0,0,45,"calvary",$("#unit_team").val()),
 	troop.draw(s)
 	fighters.push(troop)
 	
@@ -29,7 +29,7 @@ function adjust_xy(event, unit){
 	var myMatrix = new Snap.Matrix();
 	x = unit.x
 	y = unit.y
-	myMatrix.translate(event.clientX - x,event.clientY - y  - 90);
+	myMatrix.translate(event.clientX - x,event.clientY - y  - 108);
 	unit.x = event.clientX;
 	unit.y = event.clientY;
 	unit.obj.animate({ transform: myMatrix },400)
