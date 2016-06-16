@@ -16,6 +16,7 @@ body{
 }
 .secondary_button{
 	border-color: green;
+	display:none;
 }
 
 .user_button{

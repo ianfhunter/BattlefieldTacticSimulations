@@ -35,15 +35,18 @@ function adjust_xy(event, unit){
 	unit.obj.animate({ transform: myMatrix },400)
 }
 
+function propose_unit(typ){
+	$("#unit_type").text(typ);
+}
+
 function show_interaction(elem){
 	console.log(elem)
 	s = Snap(elem);
 	
+
 	s.attr({
-		onclick:'',
 		id:'active-delete'
 	})
-
 	
 	DEL = s.circle(-20,0,10);
 	DEL_t = s.text(-24,5,"X");
@@ -56,6 +59,11 @@ function show_interaction(elem){
 	})
 	DEL.addClass('temporary')
 	DEL_t.addClass('temporary')
+
+	s.attr({
+		onclick:'$(".temporary").remove(); this.setAttribute("onclick","show_interaction(this)")'
+	})
+
 	
 
 }
