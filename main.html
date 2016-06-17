@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> 
+<script src="config.js"></script>
 <script src="snap.svg-min.js"></script>
 <script src="unit.js"></script>
 <script src="menu.js"></script>
@@ -59,9 +60,6 @@
 		<br/>
 		Team:
 		<select id="unit_team">
-			<option value="0">Red</option>
-			<option value="1">Blue</option>
-			<option value="2">Green</option>
 		</select>
 		<button id="unit_place" value="Confirm" onclick="place()">Place Unit</button>
 	</span>
@@ -82,14 +80,8 @@
 	</span>
 </div>
 <div id="info_bar">
-	<span class="message unit_menu_item" >
-		Units Available: 
-		<b class="resource_name">Soldier</b> <i class="resource_amount">20</i>
-		<b class="resource_name">Calvary</b> <i class="resource_amount">10</i>
-		<b class="resource_name">Archer</b> <i class="resource_amount">15</i>
-		
-		</br>
-	</span>
+	<span class="message unit_info" ></span>
+	<span class="message legend" ></span>
 </div>
 
 <svg id="map_area" xmlns="http://www.w3.org/2000/svg" width="1000" height="500" xmlns:xlink="http://www.w3.org/1999/xlink">

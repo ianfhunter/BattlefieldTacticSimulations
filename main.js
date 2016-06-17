@@ -1,40 +1,31 @@
 
+var menu_height;
+var info_height;
+var interface_height;
+
 window.onload = function () { 
-
-	var s = Snap("#map_area");
+	menu_height = $('#interface').css('height');
+	info_height = 19;
+	interface_height = menu_height + info_height;	//from initial menu
 	
-	red_army = [
-	
-		new Unit(190,84,45,"calvary",0),
-		new Unit(215,104,45,"calvary",0),
-		new Unit(234,124,45,"calvary",0),
-		
-		new Unit(245,151,45,"soldier",0),
-		new Unit(269,171,45,"soldier",0),
-		new Unit(285,185,45,"soldier",0),
-		new Unit(304,205,45,"soldier",0),
-		new Unit(320,220,45,"soldier",0),
-		new Unit(339,235,45,"soldier",0),
-		new Unit(374,268,45,"soldier",0),
-		new Unit(395,285,45,"soldier",0),
-		new Unit(410,300,45,"soldier",0),
-		new Unit(445,330,45,"soldier",0),
-		new Unit(460,345,45,"soldier",0),
-		new Unit(475,360,45,"soldier",0),
-		new Unit(420,410,45,"soldier",0),
-		new Unit(442,428,45,"soldier",0),
-		
-		new Unit(503,383,45,"calvary",0),
-		new Unit(520,400,45,"calvary",0),
-		new Unit(538,418,45,"calvary",0),
-		new Unit(560,435,45,"calvary",0),
+	auto_populate(menu_height, info_height);
+}
 
-		new Unit(590,465,80,"calvary",0),
-
-		
-	]
-	for (unit in red_army){
-		red_army[unit].draw(s);
+function auto_populate(menu_height, info_height){
+	$(".unit_info").html("Units Available: <br/>")
+	for (army in armies){
+		info_height += 19;
+		interface_height += info_height
+		$(".unit_info").html($(".unit_info").html() + army + ": ")
+		$(".legend").html($(".legend").html() // Legend.
+			+ "<img class='flag' src=\"data/"+ armies[army]["Flag"] +"\" />"+ '(' + 
+				"<img class='flag' style=\"background-color:"+ armies[army]["color"] +"\" />"
+				+ ')' +army + "<br />")
+		$('#unit_team').html($('#unit_team').html() + '<option value="'+army+'">'+army+'</option>' )
+		for (unit in armies[army]["Units"]){
+			$(".unit_info").html($(".unit_info").html() + '<b class="resource_name">'+ unit + '</b> <i class="resource_amount">'+armies[army]["Units"][unit]+'</i> ')
+		}
+		$(".unit_info").html($(".unit_info").html() + '<br />')
 	}
-
+	$("#info_bar").css('height', info_height)
 }

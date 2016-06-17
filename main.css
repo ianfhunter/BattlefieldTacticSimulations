@@ -29,4 +29,14 @@ body{
 }
 
 
+.unit_info, .legend{
+	display:inline-block;
+}
+.legend{
+	float:right;
+}
 
+.flag{
+	width: 20px;
+	height: 10px;
+}

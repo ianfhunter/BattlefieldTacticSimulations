@@ -1,28 +1,3 @@
-var team_colors=[
-	"#890000",
-	"#0B2EA0",
-	"#05B200"	
-]
-
-var unit_list={
-	"soldier":{
-		"draw":{
-			"rect":[22, 10, null, "#000", 1]
-		}
-	},
-	"calvary":{
-		"draw":{
-			"rect":[22, 10, null, "#000", 1],
-			"polyline":[
-				[[0, 0],[22, 10],[0, 10]],
-				"#FFFFFF",
-				"#000", 
-				1
-			]
-		}
-	}
-};
-
 function add (elem, x, y){
 	return [elem[0] + x, elem[1] + y]
 }
