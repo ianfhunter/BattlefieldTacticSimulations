@@ -4,13 +4,14 @@ function add (elem, x, y){
 
 var running_unit_id = 0
 
-function Unit (x, y, rotation, type,team) {
+function Unit (x, y, rotation, type, team, amount) {
     this.type = type;
     this.x = x;
 	this.y = y;
 	this.rotation = rotation;
 	this.obj = null;
 	this.team = team;
+	this.amount = amount;
 	
 	this.draw = function(s){
 		prop = unit_list[this.type]["draw"]
@@ -20,7 +21,7 @@ function Unit (x, y, rotation, type,team) {
 			if (key == "rect"){
 				obj = s.rect(this.x, this.y, prop[key][0], prop[key][1]);
 				obj.attr({
-					fill: prop[key][2] == null?team_colors[this.team]:prop[key][2] ,
+					fill: prop[key][2] == null?armies[this.team]['color']:prop[key][2] ,
 					stroke: prop[key][3],
 					strokeWidth: prop[key][4]
 				});
@@ -36,7 +37,7 @@ function Unit (x, y, rotation, type,team) {
 				console.log(prop[key][1])
 				console.log(prop[key][1] == 'null')
 				obj.attr({
-					fill: prop[key][1] == 'null' ? team_colors[this.team]: prop[key][1],
+					fill: prop[key][1] == 'null' ? armies[this.team]['color']: prop[key][1],
 					stroke: prop[key][2],
 					strokeWidth: prop[key][3]
 				});

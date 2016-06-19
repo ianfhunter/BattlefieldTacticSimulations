@@ -6,8 +6,21 @@ function place(){
 	console.log($("#unit_type").text())
 	console.log($("#unit_num").val())
 	
+	if ($("#unit_num").val() <= 0){
+		console.log("Cannot have empty unit.")
+		return;
+	}else if ($("#unit_num").val() > 50){
+		console.log("Not enough units available")
+	}else{
+		console.log($(".army_name ." + $("#unit_team").val() + " ." + $("#unit_type").text() + ".resource_amount").text())
+		console.log($(".unit_info ." + $("#unit_team").val() + " ." + $("#unit_type").text() + ".resource_amount").text())
+	}
+		
+	
+	
+	
 	$("#unit_place").text("Click on the map.")
-	troop = new Unit(0,0,45,"calvary",$("#unit_team").val()),
+	troop = new Unit(0,0,45,"calvary",$("#unit_team").val(),$("#unit_num").val()),
 	troop.draw(s)
 	fighters.push(troop)
 	
@@ -18,8 +31,7 @@ function place(){
 			onclick:'show_interaction(this)'
 		})
 	})
-	
-	console.log(troop)
+
 }
 
 function adjust_xy(event, unit){
@@ -40,9 +52,7 @@ function propose_unit(typ){
 }
 
 function show_interaction(elem){
-	console.log(elem)
 	s = Snap(elem);
-	
 
 	s.attr({
 		id:'active-delete'

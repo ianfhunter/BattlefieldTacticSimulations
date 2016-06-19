@@ -40,3 +40,9 @@ body{
 	width: 20px;
 	height: 10px;
 }
+.army_name{
+	display:block;
+}
+.resource_name{
+	margin-left: 4px;
+}

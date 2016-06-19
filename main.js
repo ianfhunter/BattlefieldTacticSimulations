@@ -12,20 +12,21 @@ window.onload = function () {
 }
 
 function auto_populate(menu_height, info_height){
-	$(".unit_info").html("Units Available: <br/>")
+	$(".unit_info").html("Units Available: <br />")
 	for (army in armies){
 		info_height += 19;
 		interface_height += info_height
-		$(".unit_info").html($(".unit_info").html() + army + ": ")
-		$(".legend").html($(".legend").html() // Legend.
-			+ "<img class='flag' src=\"data/"+ armies[army]["Flag"] +"\" />"+ '(' + 
+		$(".unit_info").append("<span class='army_name "+army+" ' >"+army + "")
+		$(".legend").append( // Legend.
+			"<img class='flag' src=\"data/"+ armies[army]["Flag"] +"\" />"+ '(' + 
 				"<img class='flag' style=\"background-color:"+ armies[army]["color"] +"\" />"
 				+ ')' +army + "<br />")
-		$('#unit_team').html($('#unit_team').html() + '<option value="'+army+'">'+army+'</option>' )
+		$('#unit_team').append('<option value="'+army+'">'+army+'</option>' )
 		for (unit in armies[army]["Units"]){
-			$(".unit_info").html($(".unit_info").html() + '<b class="resource_name">'+ unit + '</b> <i class="resource_amount">'+armies[army]["Units"][unit]+'</i> ')
+			console.log("."+army)
+			$("."+army+"").append('<span class="resource '+unit+'"><b class="resource_name">'+ unit + '</b> <i class="resource_amount">'+armies[army]["Units"][unit]+'</i></span> ')
 		}
-		$(".unit_info").html($(".unit_info").html() + '<br />')
+		$(".unit_info .army_name").append('</span>')
 	}
 	$("#info_bar").css('height', info_height)
 }
